@@ -1,0 +1,36 @@
+# Unity
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+Assets/AssetStoreTools*
+[Aa]ssets/Resources/GameSaves/
+[Ll]ogs/
+
+# VS/Rider/MD/Consulo
+ExportedObj/
+.consulo/
+.idea/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+ 
+# Builds
+*.apk
+*.app
+*.exe
+
+# Settings files
+ProjectSettings/ProjectVersion.txt
+Logs
+
+# editors
+.vscode/
