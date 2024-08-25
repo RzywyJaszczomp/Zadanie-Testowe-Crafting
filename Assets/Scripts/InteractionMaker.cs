@@ -1,22 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
+using UnityEditor.Search;
 using UnityEngine;
 
 public class InteractionMaker : MonoBehaviour
 {
-    private List<IInteractable> _interactablesInRadius = new();
+    [SerializeField] private CustomEvent _newInteractionAvaliableE;
+    [SerializeField] private SimpleCustomEvent _noInteractionAvaliableE;
+    [SerializeField] private CustomEvent _pickedUpItemE;
+
+    private List<GameObject> _interactablesInRadius = new();
     
-    public void DetectInteractable(IInteractable interactable)
+    public void DetectInteractable(GameObject interactable)
     {
         _interactablesInRadius.Add(interactable);
-        // Debug.Log($"Interactables in radius: {_interactablesInRadius.Count}");
+        _newInteractionAvaliableE.Invoke(interactable);
     }
 
-    public void LoseInteractable(IInteractable interactable)
+    public void LoseInteractable(GameObject interactable)
     {
         _interactablesInRadius.Remove(interactable);
-        // Debug.Log($"Interactables in radius: {_interactablesInRadius.Count}");
+        _noInteractionAvaliableE.Invoke();
     }
 
     [ContextMenu("TestInteraction")]
@@ -24,17 +30,17 @@ public class InteractionMaker : MonoBehaviour
     {
         if(_interactablesInRadius.Count != 0)
         {
-            // Debug.Log("Test interaction");
-            _interactablesInRadius.Last().Interact(gameObject);
-        // } else 
-        // {
-        //     Debug.Log("Nothing to interact with");
+            _interactablesInRadius.Last().GetComponent<IInteractable>().Interact(gameObject);
+        } else 
+        {
+            Debug.Log("Nothing to interact with");
         }
     }
 
     public void Interact(Pickable pickable)
     {
-        LoseInteractable(pickable);
+        _pickedUpItemE.Invoke(pickable.gameObject);
+        LoseInteractable(pickable.gameObject);
     }
 
 }
