@@ -6,6 +6,8 @@ public class InventoryUI : MonoBehaviour
 {
     [SerializeField] private GameObject _inventorySlot;
     [SerializeField] private GameObject _inventoryPanel;
+    [SerializeField] private Transform _inventorySlotsParent;
+    private List<GameObject> _inventorySlots = new();
 
 
     private void Awake()
@@ -23,8 +25,22 @@ public class InventoryUI : MonoBehaviour
         _inventoryPanel.SetActive(false);
     }
 
-    public void UpdateInventoryUI(GameObject inventory)
+    public void UpdateInventoryUI(GameObject inventoryObject)
     {
+        var inventory = inventoryObject.GetComponent<InventoryScript>();
+        UpdateNrOfInventorySlots(inventory.InventorySize);
+    }
 
+    private void UpdateNrOfInventorySlots(int inventorySize)
+    {
+        if(inventorySize != _inventorySlots.Count)
+        {
+            _inventorySlots.Clear();
+            for(int i = 0; i < inventorySize; ++i)
+            {
+                var newSlot = Instantiate(_inventorySlot, _inventorySlotsParent);
+                _inventorySlots.Add(newSlot);
+            }
+        }
     }
 }

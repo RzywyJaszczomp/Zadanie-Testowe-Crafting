@@ -24,14 +24,12 @@ public class PlayerInputManager : MonoBehaviour
 
     public void SetInputMapToInventory()
     {
-        Debug.Log("a");
         _input.SwitchCurrentActionMap("UI");
         Cursor.lockState = CursorLockMode.Confined;
     }
 
     public void SetInputMapToGame()
     {
-        Debug.Log("b");
         _input.SwitchCurrentActionMap("Player");
         if(_lockCursor)
         {
