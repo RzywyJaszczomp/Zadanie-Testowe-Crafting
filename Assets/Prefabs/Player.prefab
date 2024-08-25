@@ -382,7 +382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe83be70e8c23748b2e74fcbdbc87db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <InventorySize>k__BackingField: 30
+  <InventorySize>k__BackingField: 5
   _inventoryOpenedE: {fileID: 11400000, guid: 1925ee029754f424489cf6a2e093243a, type: 2}
   _inventoryClosedE: {fileID: 11400000, guid: 4c0988e019ea5674b8b3868b8d78522b, type: 2}
   _inventoryCreatedE: {fileID: 11400000, guid: dc1ab34d851b19148bc89369476f6fc5, type: 2}

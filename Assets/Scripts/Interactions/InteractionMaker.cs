@@ -42,10 +42,17 @@ public class InteractionMaker : MonoBehaviour
         }
     }
 
-    public void Interact(Pickable pickable)
+    public bool Interact(Pickable pickable)
     {
-        _pickedUpItemE.Invoke(pickable.gameObject);
-        LoseInteractable(pickable.gameObject);
+        var inventory = GetComponentInChildren<InventoryScript>();
+        if(inventory != null)
+        {
+            _pickedUpItemE.Invoke(pickable.gameObject);
+            inventory.AddToInventory(pickable.ItemType);
+            LoseInteractable(pickable.gameObject);
+            return true;
+        } 
+        return false;
     }
 
     public void OnInteract()
