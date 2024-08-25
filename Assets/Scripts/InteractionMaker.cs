@@ -22,7 +22,13 @@ public class InteractionMaker : MonoBehaviour
     public void LoseInteractable(GameObject interactable)
     {
         _interactablesInRadius.Remove(interactable);
-        _noInteractionAvaliableE.Invoke();
+        if(_interactablesInRadius.Count > 0)
+        {
+            _newInteractionAvaliableE.Invoke(_interactablesInRadius.Last());
+        } else
+        {
+            _noInteractionAvaliableE.Invoke();
+        }
     }
 
     public void InteractWithNewest()
