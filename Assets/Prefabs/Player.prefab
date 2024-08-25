@@ -146,10 +146,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2047048593671205874}
-  - component: {fileID: 7910724878787794427}
-  - component: {fileID: 1392580981801022269}
   - component: {fileID: 8936550840981930450}
   - component: {fileID: 5882212022051700409}
+  - component: {fileID: 4890192997721877472}
+  - component: {fileID: 1392580981801022269}
+  - component: {fileID: 7910724878787794427}
   - component: {fileID: 7435532325142093988}
   - component: {fileID: 8357776043141331063}
   - component: {fileID: 5074025271238055216}
@@ -177,14 +178,47 @@ Transform:
   - {fileID: 7307006811383221533}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &7910724878787794427
-MeshFilter:
+--- !u!114 &8936550840981930450
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5503622818654167502}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5b173793657deebeb6136d2b1dfd03f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _MovementSpeed: 150
+--- !u!114 &5882212022051700409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5503622818654167502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30d72554e9f813c45b476c032fc66539, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camera: {fileID: 6782535454363869358}
+  _cameraSensitivityV: 0.25
+  _cameraSensitivityH: 0.25
+  _verticalMaxAngle: 50
+--- !u!114 &4890192997721877472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5503622818654167502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c324571773e3dbe409403dfa78587b3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &1392580981801022269
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -227,35 +261,14 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8936550840981930450
-MonoBehaviour:
+--- !u!33 &7910724878787794427
+MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5503622818654167502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5b173793657deebeb6136d2b1dfd03f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _MovementSpeed: 150
---- !u!114 &5882212022051700409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5503622818654167502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30d72554e9f813c45b476c032fc66539, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _camera: {fileID: 6782535454363869358}
-  _cameraSensitivityV: 0.25
-  _cameraSensitivityH: 0.25
-  _verticalMaxAngle: 50
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &7435532325142093988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,6 +360,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7307006811383221533}
   - component: {fileID: 1809756083664344683}
+  - component: {fileID: 2670414087179408714}
   m_Layer: 6
   m_Name: InteractionRadius
   m_TagString: Untagged
@@ -390,3 +404,15 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2670414087179408714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6146271095298140217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ffb3e5a9ac7f654f9d22e1a37e5523f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
