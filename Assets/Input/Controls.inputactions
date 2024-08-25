@@ -31,6 +31,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "OpenInventory",
+                    "type": "Button",
+                    "id": "e61e8c61-50d7-4824-a1e3-945f07349a4e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -110,6 +119,17 @@
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5f6f04ac-639b-44c7-9cc6-2b8135f81b61",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenInventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -118,7 +138,7 @@
             "id": "e787130d-b489-4584-9e05-db056c3e168d",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "CloseInventory",
                     "type": "Button",
                     "id": "ac03ef30-af24-410b-9caa-d1bde338cf65",
                     "expectedControlType": "Button",
@@ -131,11 +151,22 @@
                 {
                     "name": "",
                     "id": "d0a8a1f2-13cf-4532-a0f4-bbd560294930",
-                    "path": "",
+                    "path": "<Keyboard>/i",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "CloseInventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b0dc2b60-3450-481e-b46a-b2f3b450fab0",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CloseInventory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

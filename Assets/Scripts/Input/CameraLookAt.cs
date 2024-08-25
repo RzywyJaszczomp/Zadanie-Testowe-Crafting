@@ -12,14 +12,6 @@ public class CameraLookAt : MonoBehaviour
     private float _yRotationD = 0f;
     private float _xRotation = 0f;
 
-    private
-
-
-    void Awake()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-    }
-
 
     void Update()
     {
