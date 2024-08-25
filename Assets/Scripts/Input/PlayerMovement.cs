@@ -19,9 +19,9 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody.AddRelativeForce(_movementVector * _MovementSpeed, ForceMode.Force);
     }
 
-    public void OnMove(InputValue value)
+    public void OnMove(InputAction.CallbackContext ctx)
     {
-        var movVec = value.Get<Vector2>().normalized;
+        var movVec = ctx.ReadValue<Vector2>().normalized;
         _movementVector = new Vector3(movVec.x, 0, movVec.y);
     }
 }

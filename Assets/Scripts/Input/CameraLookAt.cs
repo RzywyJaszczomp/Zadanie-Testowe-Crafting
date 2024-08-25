@@ -20,9 +20,9 @@ public class CameraLookAt : MonoBehaviour
 
     }
 
-    public void OnLook(InputValue value)
+    public void OnLook(InputAction.CallbackContext ctx)
     {
-        var lookVec = value.Get<Vector2>();
+        var lookVec = ctx.ReadValue<Vector2>();
         _yRotationD = lookVec.x * _cameraSensitivityH;
         var xRotationD = lookVec.y * _cameraSensitivityV;
         _xRotation -= xRotationD;

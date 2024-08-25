@@ -5,35 +5,17 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputManager : MonoBehaviour
 {
-    [SerializeField] private bool _lockCursor = true;
-    [SerializeField] private bool _disableControls = false;
-    private PlayerInput _input;
+    [SerializeField] private CustomEvent _characterCreatedE;
 
-    private void Awake()
+    private void  OnEnable()
     {
-        _input = GetComponent<PlayerInput>();
-        if(_lockCursor)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-        if(_disableControls)
-        {
-            _input.actions.Disable();
-        }
+        StartCoroutine(NotifyOfCreation());
     }
 
-    public void SetInputMapToInventory()
+    private IEnumerator NotifyOfCreation()
     {
-        _input.SwitchCurrentActionMap("UI");
-        Cursor.lockState = CursorLockMode.Confined;
-    }
+        yield return 0;
+        _characterCreatedE.Invoke(gameObject);
 
-    public void SetInputMapToGame()
-    {
-        _input.SwitchCurrentActionMap("Player");
-        if(_lockCursor)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
     }
 }

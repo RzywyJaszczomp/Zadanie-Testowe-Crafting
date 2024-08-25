@@ -10,6 +10,7 @@ public class InventoryScript : MonoBehaviour
     public int InventorySize {get; private set;}
     [SerializeField] private CustomEvent _inventoryOpenedE;
     [SerializeField] private SimpleCustomEvent _inventoryClosedE;
+    [SerializeField] private CustomEvent _inventoryCreatedE;
     public void OnOpenInventory()
     {
         _inventoryOpenedE.Invoke(gameObject);
@@ -18,5 +19,17 @@ public class InventoryScript : MonoBehaviour
     public void OnCloseInventory()
     {
         _inventoryClosedE.Invoke();
+    }
+
+    private void OnEnable()
+    {
+        StartCoroutine(NotifyOfCreation());
+    }
+
+    private IEnumerator NotifyOfCreation()
+    {
+        yield return 0;
+        _inventoryCreatedE.Invoke(gameObject);
+
     }
 }
