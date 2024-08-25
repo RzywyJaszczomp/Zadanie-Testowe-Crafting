@@ -10,6 +10,7 @@ public class FadingPopUpUI : MonoBehaviour
     [SerializeField] private String _message = "Picked up";
     [SerializeField] private float _secondsActive;
     private bool _isActive = false;
+    private Coroutine _lastCoroutine = null; 
 
     public void SetText(GameObject interactable)
     {
@@ -25,10 +26,10 @@ public class FadingPopUpUI : MonoBehaviour
     {
         if(_isActive)
         {
-            StopCoroutine(Show());
+            StopCoroutine(_lastCoroutine);
         } 
             _isActive = true;
-            StartCoroutine(Show());
+            _lastCoroutine = StartCoroutine(Show());
     }
 
     private IEnumerator Show()
