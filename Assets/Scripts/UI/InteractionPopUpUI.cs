@@ -1,11 +1,10 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class InteractionPopUpUI : MonoBehaviour
 {
+    [SerializeField] private GameObject _panel;
     [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private String _message = "Press E to interact with";
 
@@ -16,6 +15,6 @@ public class InteractionPopUpUI : MonoBehaviour
 
     private void Start()
     {
-        gameObject.SetActive(false);
+        _panel.SetActive(false);
     }
 }

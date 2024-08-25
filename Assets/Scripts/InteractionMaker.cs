@@ -25,7 +25,6 @@ public class InteractionMaker : MonoBehaviour
         _noInteractionAvaliableE.Invoke();
     }
 
-    [ContextMenu("TestInteraction")]
     public void InteractWithNewest()
     {
         if(_interactablesInRadius.Count != 0)
@@ -43,4 +42,8 @@ public class InteractionMaker : MonoBehaviour
         LoseInteractable(pickable.gameObject);
     }
 
+    public void OnInteract()
+    {
+        InteractWithNewest();
+    }
 }
