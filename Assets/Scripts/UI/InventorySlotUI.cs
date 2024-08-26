@@ -6,17 +6,23 @@ using UnityEngine.UI;
 
 public class InventorySlotUI : MonoBehaviour
 {
+    private CustomItemEvent _requestItemRemovedE;
     [SerializeField] private Image _image;
     [SerializeField] private TextMeshProUGUI _amount;
+    [SerializeField] private Button _removeButton;
+    private Item _containedItem;
 
-    private void Awake()
+
+    public void ConfigureSlot(CustomItemEvent itemRemovedE)
     {
         _image.gameObject.SetActive(false);
+        _requestItemRemovedE = itemRemovedE;
     }
     
-    public void SetItemIcon(Sprite sprite, int amount)
+    public void SetItemIcon(Item item, int amount)
     {
-        _image.sprite = sprite;
+        _containedItem = item;
+        _image.sprite = item.Icon;
         _amount.text = $"{amount}";
         _image.gameObject.SetActive(true);
     }
@@ -24,5 +30,10 @@ public class InventorySlotUI : MonoBehaviour
     public void ResetIcon()
     {
         _image.gameObject.SetActive(false);
+    }
+
+    public void RequestRemovalFromSlot()
+    {
+        _requestItemRemovedE.Invoke(_containedItem);
     }
 }

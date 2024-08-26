@@ -10,7 +10,7 @@ public class InventoryScript : MonoBehaviour
     public int InventorySize {get; private set;}
     [SerializeField] private CustomEvent _inventoryOpenedE;
     [SerializeField] private SimpleCustomEvent _inventoryClosedE;
-    [SerializeField] private CustomEvent _inventoryCreatedE;
+    [SerializeField] private CustomEvent _inventoryChangedE;
 
     public Dictionary<Item, int> Inventory {get; private set;}
 
@@ -28,18 +28,6 @@ public class InventoryScript : MonoBehaviour
         _inventoryClosedE.Invoke();
     }
 
-    private void OnEnable()
-    {
-        StartCoroutine(NotifyOfCreation());
-    }
-
-    private IEnumerator NotifyOfCreation()
-    {
-        yield return 0;
-        _inventoryCreatedE.Invoke(gameObject);
-
-    }
-
     public void AddToInventory(Item item)
     {
         if(Inventory.ContainsKey(item))
@@ -49,11 +37,21 @@ public class InventoryScript : MonoBehaviour
         {
             Inventory[item] = 1;
         }
+        _inventoryChangedE.Invoke(gameObject);
     }
 
-    public void PickUpItem(GameObject itemObject)
+    public void RemoveFromInventory(Item item)
     {
-        var item = itemObject.GetComponent<Pickable>().ItemType;
-        AddToInventory(item);
+        if(Inventory.ContainsKey(item))
+        {
+            if(Inventory[item] > 1)
+            {
+                Inventory[item]--;
+            } else
+            {
+                Inventory.Remove(item);
+            }
+            _inventoryChangedE.Invoke(gameObject);
+        }
     }
 }

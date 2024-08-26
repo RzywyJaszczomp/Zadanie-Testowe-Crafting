@@ -3,27 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "CustomEvent", menuName = "ScriptableObjects/CustomEvent")]
-public class CustomEvent : ScriptableObject
+public class CustomEvent : GenericCustomEvent<GameObject>
 {
-    [Header("Visible for Debug")]
-    [SerializeField]
-    private List<CustomEventListener> m_listeners;
-
-    public void RegisterListener(CustomEventListener listener)
-    {
-        m_listeners.Add(listener);
-    }
-
-    public void DeregisterListener(CustomEventListener listener)
-    {
-        m_listeners.Remove(listener);
-    }
-
-    public void Invoke(GameObject gameObject)
-    {
-        for(int i = m_listeners.Count -1; i >= 0; --i)
-        {
-            m_listeners[i].OnEvent(gameObject);
-        }
-    }
 }

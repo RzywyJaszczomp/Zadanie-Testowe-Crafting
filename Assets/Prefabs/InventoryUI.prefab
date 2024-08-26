@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0.000061035156}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &8948934554057490849
@@ -315,6 +315,7 @@ GameObject:
   - component: {fileID: 1626181667390098019}
   - component: {fileID: 4097296617567659961}
   - component: {fileID: 3014675266293078373}
+  - component: {fileID: 6377142073410179012}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -354,6 +355,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae831b57ff148374998cb7bdd7d56552, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _requestItemRemovedE: {fileID: 11400000, guid: ccefacc14763a3241bd13fe7f15ee441,
+    type: 2}
   _inventorySlot: {fileID: 7437428889677446632, guid: 0d991457210002647b7d02e8d0ed9196,
     type: 3}
   _inventoryPanel: {fileID: 8368525804452197043}
@@ -418,6 +421,34 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
         m_MethodName: HideInventory
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6377142073410179012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7386849316429991730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04dbf3a6e0f55cc48b00437271fdf357, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_event: {fileID: 11400000, guid: bc8c43f0f0d5a894493289e314001dbc, type: 2}
+  m_reaction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1626181667390098019}
+        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+        m_MethodName: UpdateInventoryUI
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -654,7 +685,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1811256316780825971}
   m_HandleRect: {fileID: 3734500308528862253}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

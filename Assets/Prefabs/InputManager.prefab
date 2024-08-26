@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2494200211180021782}
   - component: {fileID: 5543369474264916634}
   - component: {fileID: 9220042573283277422}
-  - component: {fileID: 7411965412530647094}
   - component: {fileID: 7181718135376811209}
   - component: {fileID: 214287329193148953}
   m_Layer: 0
@@ -51,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lockCursor: 1
   _disableControls: 0
+  _disableInventory: 0
 --- !u!114 &5543369474264916634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,6 +97,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: ac03ef30-af24-410b-9caa-d1bde338cf65
     m_ActionName: UI/CloseInventory[/Keyboard/i,/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 59adad6c-afba-452b-8710-f9a1bef6a3a5
+    m_ActionName: Player/Test[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -121,34 +125,6 @@ MonoBehaviour:
       - m_Target: {fileID: 2494200211180021782}
         m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
         m_MethodName: RegisterPlayer
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &7411965412530647094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 141932418455900879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04dbf3a6e0f55cc48b00437271fdf357, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_event: {fileID: 11400000, guid: dc1ab34d851b19148bc89369476f6fc5, type: 2}
-  m_reaction:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2494200211180021782}
-        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
-        m_MethodName: RegisterInventory
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

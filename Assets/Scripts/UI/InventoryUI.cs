@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class InventoryUI : MonoBehaviour
 {
+    [SerializeField] private CustomItemEvent _requestItemRemovedE;
     [SerializeField] private GameObject _inventorySlot;
     [SerializeField] private GameObject _inventoryPanel;
     [SerializeField] private Transform _inventorySlotsParent;
-    private List<GameObject> _inventorySlots = new();
+    private List<InventorySlotUI> _inventorySlots = new();
 
 
     private void Awake()
@@ -41,20 +42,30 @@ public class InventoryUI : MonoBehaviour
             for(int i = 0; i < inventorySize; ++i)
             {
                 var newSlot = Instantiate(_inventorySlot, _inventorySlotsParent);
-                _inventorySlots.Add(newSlot);
+                _inventorySlots.Add(newSlot.GetComponent<InventorySlotUI>());
+                newSlot.GetComponent<InventorySlotUI>().ConfigureSlot(_requestItemRemovedE);
             }
         }
     }
 
     private void DisplayItems(InventoryScript inventory)
     {
+        ResetIcons();
         int i = 0;
         foreach(var itemType in inventory.Inventory.Keys)
         {
-            Debug.Log("a");
             var amountOfItems = inventory.Inventory[itemType];
-            _inventorySlots[i].GetComponent<InventorySlotUI>().SetItemIcon(itemType.Icon, amountOfItems);
+            _inventorySlots[i].SetItemIcon(itemType, amountOfItems);
             ++i;
         }
     }
+
+    private void ResetIcons()
+    {
+        foreach(var slot in _inventorySlots)
+        {
+            slot.ResetIcon();
+        }
+    }
+
 }

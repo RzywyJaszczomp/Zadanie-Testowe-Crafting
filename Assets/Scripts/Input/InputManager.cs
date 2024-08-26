@@ -5,6 +5,7 @@ public class InputManager : MonoBehaviour
 {
     [SerializeField] private bool _lockCursor = true;
     [SerializeField] private bool _disableControls = false;
+    [SerializeField] private bool _disableInventory = false;
     private PlayerInput _input;
 
     private void Awake()
@@ -20,13 +21,13 @@ public class InputManager : MonoBehaviour
         }
     }
 
-    public void RegisterInventory(GameObject inventory)
+    public void RegisterInventory(InventoryScript inventory)
     {
         var playerMap = _input.actions.FindActionMap("Player");
         var menuMap = _input.actions.FindActionMap("Menu");
 
-        playerMap.FindAction("OpenInventory").performed += _ => inventory.GetComponent<InventoryScript>().OnOpenInventory(); 
-        menuMap.FindAction("CloseInventory").performed += _ => inventory.GetComponent<InventoryScript>().OnCloseInventory(); 
+        playerMap.FindAction("OpenInventory").performed += _ => inventory.OnOpenInventory(); 
+        menuMap.FindAction("CloseInventory").performed += _ => inventory.OnCloseInventory(); 
     }
     public void RegisterPlayer(GameObject player)
     {
@@ -35,6 +36,11 @@ public class InputManager : MonoBehaviour
         playerMap.FindAction("Move").canceled += ctx => player.GetComponent<PlayerMovement>().OnMove(ctx); 
         playerMap.FindAction("Look").performed += ctx => player.GetComponent<CameraLookAt>().OnLook(ctx); 
         playerMap.FindAction("Interact").performed += _ => player.GetComponent<InteractionMaker>().OnInteract(); 
+        if(!_disableInventory)
+        {
+            var inventory = player.GetComponentInChildren<InventoryScript>();
+            RegisterInventory(inventory);
+        }
     }
 
     public void SetInputMapToInventory()

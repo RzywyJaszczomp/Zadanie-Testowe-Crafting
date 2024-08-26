@@ -348,6 +348,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5452498951034867006}
   - component: {fileID: 8073633542744367037}
+  - component: {fileID: 4391620210118080558}
   m_Layer: 0
   m_Name: Inventory
   m_TagString: Untagged
@@ -385,7 +386,35 @@ MonoBehaviour:
   <InventorySize>k__BackingField: 5
   _inventoryOpenedE: {fileID: 11400000, guid: 1925ee029754f424489cf6a2e093243a, type: 2}
   _inventoryClosedE: {fileID: 11400000, guid: 4c0988e019ea5674b8b3868b8d78522b, type: 2}
-  _inventoryCreatedE: {fileID: 11400000, guid: dc1ab34d851b19148bc89369476f6fc5, type: 2}
+  _inventoryChangedE: {fileID: 11400000, guid: bc8c43f0f0d5a894493289e314001dbc, type: 2}
+--- !u!114 &4391620210118080558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6110782606677342643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6645e3f92cf00043892c01371133c56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_event: {fileID: 11400000, guid: ccefacc14763a3241bd13fe7f15ee441, type: 2}
+  m_reaction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8073633542744367037}
+        m_TargetAssemblyTypeName: InventoryScript, Assembly-CSharp
+        m_MethodName: RemoveFromInventory
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6146271095298140217
 GameObject:
   m_ObjectHideFlags: 0
