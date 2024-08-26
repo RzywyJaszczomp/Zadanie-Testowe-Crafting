@@ -12,12 +12,13 @@ public class InventoryScript : MonoBehaviour
     [SerializeField] private SimpleCustomEvent _inventoryClosedE;
     [SerializeField] private CustomEvent _inventoryChangedE;
 
-    public Dictionary<Item, int> Inventory {get; private set;}
+    public Dictionary<Item, int> Inventory {get; private set;} //TODO better access constraints
 
     private void Start()
     {
         Inventory = new();
     }
+
     public void OnOpenInventory()
     {
         _inventoryOpenedE.Invoke(gameObject);

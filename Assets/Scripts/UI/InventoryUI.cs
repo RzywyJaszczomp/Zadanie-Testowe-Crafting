@@ -7,6 +7,7 @@ public class InventoryUI : MonoBehaviour
 {
     [SerializeField] private CustomItemEvent _requestItemRemovedE;
     [SerializeField] private SimpleCustomEvent _requestInventoryClosedE;
+    [SerializeField] private SimpleCustomEvent _requestCraftingOpenE;
     [SerializeField] private GameObject _inventorySlot;
     [SerializeField] private GameObject _inventoryPanel;
     [SerializeField] private Transform _inventorySlotsParent;
@@ -71,7 +72,12 @@ public class InventoryUI : MonoBehaviour
 
     public void OnExitPress()
     {
-        _requestInventoryClosedE.Invoke();;
+        _requestInventoryClosedE.Invoke();
+    }
+
+    public void OnOpenCraftingPress()
+    {
+        _requestCraftingOpenE.Invoke();
     }
 
 }
