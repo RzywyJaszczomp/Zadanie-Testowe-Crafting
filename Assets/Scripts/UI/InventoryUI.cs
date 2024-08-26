@@ -6,6 +6,7 @@ using UnityEngine;
 public class InventoryUI : MonoBehaviour
 {
     [SerializeField] private CustomItemEvent _requestItemRemovedE;
+    [SerializeField] private SimpleCustomEvent _requestInventoryClosedE;
     [SerializeField] private GameObject _inventorySlot;
     [SerializeField] private GameObject _inventoryPanel;
     [SerializeField] private Transform _inventorySlotsParent;
@@ -66,6 +67,11 @@ public class InventoryUI : MonoBehaviour
         {
             slot.ResetIcon();
         }
+    }
+
+    public void OnExitPress()
+    {
+        _requestInventoryClosedE.Invoke();;
     }
 
 }
