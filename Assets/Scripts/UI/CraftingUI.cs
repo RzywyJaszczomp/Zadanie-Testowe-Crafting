@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CraftingUI : MonoBehaviour
@@ -20,7 +21,6 @@ public class CraftingUI : MonoBehaviour
     public void BindCrafting(GameObject craftingObject)
     {
         _bindedCrafting = craftingObject.GetComponent<CraftingScript>();
-        Debug.Log(_bindedCrafting);
     }
 
     public void UpdateCraftingUI()
@@ -33,6 +33,7 @@ public class CraftingUI : MonoBehaviour
             {
                 var newSlot = Instantiate(_slot, _slotsParent.transform);
                 _slots.Add(newSlot);
+                newSlot.GetComponent<RecipeBarUI>().SetRecipeBar(r);
             }
         }
 

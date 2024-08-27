@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4340816685466136864}
   - component: {fileID: 1380752049134453811}
   - component: {fileID: 148478158653842505}
+  - component: {fileID: 6860236464047075029}
   m_Layer: 5
   m_Name: RecepieBar
   m_TagString: Untagged
@@ -79,6 +80,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6860236464047075029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556496300298815650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504c8dbd2f56d8a478406734034fda90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemIcon: {fileID: 8360877519850440634, guid: f94fd2fac64ee654cab102f4ca2081aa,
+    type: 3}
+  _resultIcon: {fileID: 8535261783378693915}
+  _craftingChanceText: {fileID: 3387752345846983289}
+  _ingredientsPanel: {fileID: 3710653011594331934}
 --- !u!1 &3710653011594331934
 GameObject:
   m_ObjectHideFlags: 0
@@ -573,3 +591,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 5189463691504389500}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8535261783378693915 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4501342215203258983, guid: f94fd2fac64ee654cab102f4ca2081aa,
+    type: 3}
+  m_PrefabInstance: {fileID: 5189463691504389500}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f516983ffdada040b4417ad62caece8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
