@@ -16,7 +16,13 @@ MonoBehaviour:
   _inventory:
   - <ItemType>k__BackingField: {fileID: 11400000, guid: 6ca04b08b46576a40a45dd50c725a844,
       type: 2}
-    <Amount>k__BackingField: 3
+    <Amount>k__BackingField: 4
   - <ItemType>k__BackingField: {fileID: 11400000, guid: 70ea94682aa02e145b7f1905e37b7634,
       type: 2}
-    <Amount>k__BackingField: 20
+    <Amount>k__BackingField: 17
+  - <ItemType>k__BackingField: {fileID: 11400000, guid: fed64b6bc6e386f4ea36bd3349bff765,
+      type: 2}
+    <Amount>k__BackingField: 3
+  - <ItemType>k__BackingField: {fileID: 11400000, guid: c9215b4f51f81fb4caaa43f3bb8d60b8,
+      type: 2}
+    <Amount>k__BackingField: 1

@@ -54,7 +54,7 @@ public class InteractionMaker : MonoBehaviour
     public bool Interact(Pickable pickable)
     {
         var inventory = GetComponentInChildren<InventoryScript>();
-        if(inventory != null)
+        if(inventory != null) //here would be check if inventory full if it was not expanding
         {
             _pickedUpItemE.Invoke(pickable.gameObject);
             inventory.AddToInventory(pickable.ItemType);

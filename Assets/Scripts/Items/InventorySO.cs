@@ -21,6 +21,7 @@ public class InventorySO : ScriptableObject
         {
             _inventory.Add(new ItemStack(item, 1));
         }
+        ExpandInventory();
     }
 
     public void RemoveFromInventory(Item item, int amount=1)
@@ -34,6 +35,13 @@ public class InventorySO : ScriptableObject
                 _inventory.Remove(itemStack);
             }
         }
+    }
+    
+    private void ExpandInventory()
+    {
+        if(_inventory.Count > InventorySize)
+            InventorySize += 10;
+            
     }
     public ReadOnlyCollection<ItemStack> GetItemList()
     {

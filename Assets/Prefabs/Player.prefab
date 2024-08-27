@@ -240,6 +240,7 @@ MonoBehaviour:
   _pickedUpItemE: {fileID: 11400000, guid: c261bab6bbdd0894bba1b08592aed929, type: 2}
   _allowedInteractions:
   - {fileID: 11400000, guid: 35c2acd7d008f6641aecaa90d3bafbed, type: 2}
+  - {fileID: 11400000, guid: 897b309d3169d894986cdb90a7820ce1, type: 2}
 --- !u!23 &1392580981801022269
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -53,7 +53,7 @@ public class InventoryUI : MonoBehaviour
     {
         if(inventorySize != _inventorySlots.Count)
         {
-            _inventorySlots.Clear();
+            ResetInventorySlots();
             for(int i = 0; i < inventorySize; ++i)
             {
                 var newSlot = Instantiate(_inventorySlot, _inventorySlotsParent);
@@ -61,6 +61,16 @@ public class InventoryUI : MonoBehaviour
                 newSlot.GetComponent<InventorySlotUI>().ConfigureSlot(_requestItemRemovedE);
             }
         }
+    }
+
+    private void ResetInventorySlots()
+    {
+        _inventorySlotsParent.DetachChildren();
+        foreach(var slot in _inventorySlots)
+        {
+            Destroy(slot.gameObject);
+        }
+        _inventorySlots.Clear();
     }
 
     private void DisplayItems()
