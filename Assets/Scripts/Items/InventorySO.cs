@@ -11,27 +11,25 @@ public class InventorySO : ScriptableObject
     public int InventorySize {get; private set;}
     [field: SerializeField]
     private List<ItemStack> _inventory;
-    public void AddToInventory(Item item)
+    public void AddToInventory(Item item, int amount=1)
     {
         if(HasItemType(item))
         {
             var itemStack = FindItem(item);
-            itemStack.Amount++;
+            itemStack.Amount+=amount;
         } else
         {
             _inventory.Add(new ItemStack(item, 1));
         }
     }
 
-    public void RemoveFromInventory(Item item)
+    public void RemoveFromInventory(Item item, int amount=1)
     {
         if(HasItemType(item))
         {
             var itemStack = FindItem(item);
-            if(itemStack.Amount > 1)
-            {
-                itemStack.Amount--;
-            } else
+                itemStack.Amount-=amount;
+            if(itemStack.Amount < 1)
             {
                 _inventory.Remove(itemStack);
             }
@@ -67,8 +65,13 @@ public class InventorySO : ScriptableObject
     }
 
 
-    private void FinalizeRecipe(Recipe recipe)
+    public void FinalizeRecipe(Recipe recipe)
     {
+        foreach(var itemStack in recipe.GetIngredients())
+        {
+            RemoveFromInventory(itemStack.ItemType, itemStack.Amount);
+        }
+        AddToInventory(recipe.Result.ItemType, recipe.Result.Amount);
     }
 
 }

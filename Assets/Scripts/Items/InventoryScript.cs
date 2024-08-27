@@ -56,5 +56,9 @@ public class InventoryScript : MonoBehaviour
         return _inventory.HasItems(requiredItems);
     }
 
-    
+    public void FinalizeRecipe(Recipe recipe)
+    {
+        _inventory.FinalizeRecipe(recipe);
+        _inventoryChangedE.Invoke(gameObject);
+    }
 }

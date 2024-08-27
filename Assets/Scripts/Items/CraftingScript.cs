@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityEngine;
 
+[RequireComponent(typeof(InventoryScript))]
 public class CraftingScript : MonoBehaviour
 {
     [field:Header("Persistent Recipes")]
