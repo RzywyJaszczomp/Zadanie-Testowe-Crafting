@@ -7,24 +7,33 @@ using UnityEngine;
 
 public class InteractionMaker : MonoBehaviour
 {
+    [Header("Events")]
     [SerializeField] private CustomEvent _newInteractionAvaliableE;
     [SerializeField] private SimpleCustomEvent _noInteractionAvaliableE;
     [SerializeField] private CustomEvent _pickedUpItemE;
+    [Header("Allowed Interactions")]
+    [SerializeField]
+    private List<InteractionType> _allowedInteractions = new();
 
-    private List<GameObject> _interactablesInRadius = new();
+
+    private List<AbstractInteractable> _interactablesInRadius = new();
     
-    public void DetectInteractable(GameObject interactable)
+    public void DetectInteractable(AbstractInteractable interactable)
     {
-        _interactablesInRadius.Add(interactable);
-        _newInteractionAvaliableE.Invoke(interactable);
+        if(_allowedInteractions.Contains(interactable.TypeOfInteraction))
+        {
+            _interactablesInRadius.Add(interactable);
+            _newInteractionAvaliableE.Invoke(interactable.gameObject);
+        }
     }
 
-    public void LoseInteractable(GameObject interactable)
+
+    public void LoseInteractable(AbstractInteractable interactable)
     {
         _interactablesInRadius.Remove(interactable);
         if(_interactablesInRadius.Count > 0)
         {
-            _newInteractionAvaliableE.Invoke(_interactablesInRadius.Last());
+            _newInteractionAvaliableE.Invoke(_interactablesInRadius.Last().gameObject);
         } else
         {
             _noInteractionAvaliableE.Invoke();
@@ -35,7 +44,7 @@ public class InteractionMaker : MonoBehaviour
     {
         if(_interactablesInRadius.Count != 0)
         {
-            _interactablesInRadius.Last().GetComponent<IInteractable>().Interact(gameObject);
+            _interactablesInRadius.Last().GetComponent<AbstractInteractable>().Interact(gameObject);
         } else 
         {
             Debug.Log("Nothing to interact with");
@@ -49,7 +58,7 @@ public class InteractionMaker : MonoBehaviour
         {
             _pickedUpItemE.Invoke(pickable.gameObject);
             inventory.AddToInventory(pickable.ItemType);
-            LoseInteractable(pickable.gameObject);
+            LoseInteractable(pickable);
             return true;
         } 
         return false;

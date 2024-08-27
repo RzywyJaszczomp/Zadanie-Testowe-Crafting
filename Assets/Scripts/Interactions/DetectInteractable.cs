@@ -6,11 +6,11 @@ public class DetectInteractable : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        transform.parent.GetComponent<InteractionMaker>().DetectInteractable(other.transform.parent.gameObject);
+        transform.parent.GetComponent<InteractionMaker>().DetectInteractable(other.GetComponentInParent<AbstractInteractable>());
     }
 
     private void OnTriggerExit(Collider other)
     {
-        transform.parent.GetComponent<InteractionMaker>().LoseInteractable(other.transform.parent.gameObject);
+        transform.parent.GetComponent<InteractionMaker>().LoseInteractable(other.GetComponentInParent<AbstractInteractable>());
     }
 }
