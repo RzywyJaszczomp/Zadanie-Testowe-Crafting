@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5778910412904250359}
   - component: {fileID: 4979856098335960242}
   m_Layer: 5
-  m_Name: PanelPickUp
+  m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,8 +87,10 @@ GameObject:
   - component: {fileID: 3659244783678268048}
   - component: {fileID: 323969151330002627}
   - component: {fileID: 8391152050607209704}
+  - component: {fileID: 6193717317164851017}
+  - component: {fileID: 2079132908098894713}
   m_Layer: 5
-  m_Name: PickUpPopUp
+  m_Name: FadingPopUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,7 +134,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8391152050607209704}
         m_TargetAssemblyTypeName: FadingPopUpUI, Assembly-CSharp
-        m_MethodName: SetText
+        m_MethodName: SetInteractionText
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -168,8 +170,88 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _panel: {fileID: 249727597068327166}
   _text: {fileID: 5239737837004902202}
-  _message: Picked up
+  _interactionMessage: Picked up
   _secondsActive: 2
+--- !u!114 &6193717317164851017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3841171584844760816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f09caaaca1bf2d0418af450c723a00fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_event: {fileID: 11400000, guid: df61efa14be709f419fd2ec11659c937, type: 2}
+  m_reaction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8391152050607209704}
+        m_TargetAssemblyTypeName: FadingPopUpUI, Assembly-CSharp
+        m_MethodName: SetAnyText
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Crafting Successful!
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8391152050607209704}
+        m_TargetAssemblyTypeName: FadingPopUpUI, Assembly-CSharp
+        m_MethodName: ActivateForSeconds
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Crafting Successful!
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2079132908098894713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3841171584844760816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 107b42a7d0ed68c488ee074c7e6012c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_event: {fileID: 11400000, guid: 42c705d5523dde040b1846efa7bba33b, type: 2}
+  m_reaction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8391152050607209704}
+        m_TargetAssemblyTypeName: FadingPopUpUI, Assembly-CSharp
+        m_MethodName: SetAnyText
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Not enough materials
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8391152050607209704}
+        m_TargetAssemblyTypeName: FadingPopUpUI, Assembly-CSharp
+        m_MethodName: ActivateForSeconds
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Not enough materials
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4342650421801161502
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,7 +264,7 @@ GameObject:
   - component: {fileID: 4605602932308682743}
   - component: {fileID: 7880854439497250843}
   m_Layer: 5
-  m_Name: InteractionPopUpPanel
+  m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -259,7 +341,7 @@ GameObject:
   - component: {fileID: 3780902839503207072}
   - component: {fileID: 9082147691608364884}
   m_Layer: 5
-  m_Name: InteractionPopUp
+  m_Name: PersistentPopUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RecipeBarUI : MonoBehaviour
 {
+    [Header("Events")]
+    [SerializeField] private RecipeEvent _requestMakeRecipeE;
     [Header("Connected Prefabs")]
     [SerializeField] private GameObject _itemIcon;
     [Header("Interal Prefabs")]
@@ -28,5 +31,10 @@ public class RecipeBarUI : MonoBehaviour
     private void SetItemSlot(ItemSlotUI itemSlot, ItemStack itemStack)
     {
         itemSlot.SetItemSlot(itemStack.ItemType.Icon, itemStack.Amount);
+    }
+
+    public void RequestCrafting()
+    {
+        _requestMakeRecipeE.Invoke(_heldRecipe);
     }
 }

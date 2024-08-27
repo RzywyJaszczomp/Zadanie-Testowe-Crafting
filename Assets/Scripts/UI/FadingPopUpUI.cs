@@ -7,15 +7,21 @@ public class FadingPopUpUI : MonoBehaviour
 {
     [SerializeField] private GameObject _panel;
     [SerializeField] private TextMeshProUGUI _text;
-    [SerializeField] private String _message = "Picked up";
+    [SerializeField] private String _interactionMessage = "Picked up";
     [SerializeField] private float _secondsActive;
     private bool _isActive = false;
     private Coroutine _lastCoroutine = null; 
 
-    public void SetText(GameObject interactable)
+    public void SetInteractionText(GameObject interactable)
     {
-        _text.text = $"{_message} {interactable.name}";
+        _text.text = $"{_interactionMessage} {interactable.name}";
     }
+
+    public void SetAnyText(String text)
+    {
+        _text.text = text;
+    }
+
 
     private void Start()
     {

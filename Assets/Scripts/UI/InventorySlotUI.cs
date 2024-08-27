@@ -9,7 +9,6 @@ public class InventorySlotUI : MonoBehaviour
     private CustomItemEvent _requestItemRemovedE;
     [SerializeField] private Image _image;
     [SerializeField] private TextMeshProUGUI _amount;
-    [SerializeField] private Button _removeButton;
     private Item _containedItem;
 
 

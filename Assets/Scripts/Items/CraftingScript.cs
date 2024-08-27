@@ -15,10 +15,14 @@ public class CraftingScript : MonoBehaviour
     [SerializeField] private SimpleCustomEvent _craftingOpenedE;
     [SerializeField] private SimpleCustomEvent _updateCraftingE;
     [SerializeField] private CustomEvent _craftingCreatedE;
+    [SerializeField] private RecipeEvent _recipeCraftedE;
+    [SerializeField] private SimpleCustomEvent _notEnoughMaterialsE;
+    private InventoryScript _inventory;
 
     public void Start()
     {
-        _craftingCreatedE.Invoke(gameObject);   
+        _craftingCreatedE.Invoke(gameObject); 
+        _inventory = GetComponent<InventoryScript>();
     }
     public void OnCloseCrafting()
     {
@@ -34,4 +38,17 @@ public class CraftingScript : MonoBehaviour
     {
         return _knownRecipes.GetRecipes();
     }
+
+    public void CraftIfPossible(Recipe recipe)
+    {
+        if(_inventory.HasItems(recipe.GetIngredients()))
+        // Add random chance here
+        {
+            _recipeCraftedE.Invoke(recipe);
+        } else
+        {
+            _notEnoughMaterialsE.Invoke();
+        }
+    }
+
 }

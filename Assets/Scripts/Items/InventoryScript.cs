@@ -50,4 +50,11 @@ public class InventoryScript : MonoBehaviour
     {
         return _inventory.GetItemList();
     }
+
+    public bool HasItems(ReadOnlyCollection<ItemStack> requiredItems)
+    {
+        return _inventory.HasItems(requiredItems);
+    }
+
+    
 }

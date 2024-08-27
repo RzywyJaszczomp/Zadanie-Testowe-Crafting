@@ -351,6 +351,7 @@ GameObject:
   - component: {fileID: 4391620210118080558}
   - component: {fileID: 7129886332154861288}
   - component: {fileID: 29308734517045149}
+  - component: {fileID: 2906555534381863449}
   m_Layer: 0
   m_Name: Inventory
   m_TagString: Untagged
@@ -435,6 +436,9 @@ MonoBehaviour:
   _craftingOpenedE: {fileID: 11400000, guid: 52335e3decda5bb4d87e1dee93697ec5, type: 2}
   _updateCraftingE: {fileID: 11400000, guid: 685d4be7efdecb9439881868fc3cc577, type: 2}
   _craftingCreatedE: {fileID: 11400000, guid: fc875de72ae34b945a86d0f5b64f3f74, type: 2}
+  _recipeCraftedE: {fileID: 11400000, guid: df61efa14be709f419fd2ec11659c937, type: 2}
+  _notEnoughMaterialsE: {fileID: 11400000, guid: 42c705d5523dde040b1846efa7bba33b,
+    type: 2}
 --- !u!114 &29308734517045149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -455,6 +459,34 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: CraftingScript, Assembly-CSharp
         m_MethodName: OnOpenCrafting
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2906555534381863449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6110782606677342643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f09caaaca1bf2d0418af450c723a00fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_event: {fileID: 11400000, guid: ffaac497fdc565e44bc6a6b24d9191e2, type: 2}
+  m_reaction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7129886332154861288}
+        m_TargetAssemblyTypeName: CraftingScript, Assembly-CSharp
+        m_MethodName: CraftIfPossible
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

@@ -11,7 +11,6 @@ public class ItemSlotUI : MonoBehaviour
 
     public void SetItemSlot(Sprite image, int amount)
     {
-        Debug.Log(_image);
         _image.sprite = image;
         _amount.text = $"{amount}";
     }

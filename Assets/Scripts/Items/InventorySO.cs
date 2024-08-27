@@ -52,4 +52,23 @@ public class InventorySO : ScriptableObject
         return _inventory.Find(x=>x.ItemType==item);
     }
 
+    public bool HasItems(ReadOnlyCollection<ItemStack> requiredItems)
+    {
+        bool hasItems = true;
+        foreach(var itemStack in requiredItems)
+        {
+            if(!_inventory.Any(x=>x.ItemType==itemStack.ItemType && x.Amount >=itemStack.Amount))
+            {
+                hasItems = false;
+                break;
+            }
+        }
+        return hasItems;
+    }
+
+
+    private void FinalizeRecipe(Recipe recipe)
+    {
+    }
+
 }
