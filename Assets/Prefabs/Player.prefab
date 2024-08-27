@@ -440,6 +440,7 @@ MonoBehaviour:
   _recipeCraftedE: {fileID: 11400000, guid: df61efa14be709f419fd2ec11659c937, type: 2}
   _notEnoughMaterialsE: {fileID: 11400000, guid: 42c705d5523dde040b1846efa7bba33b,
     type: 2}
+  _recipeFailedE: {fileID: 11400000, guid: d88477ca9db3f684bb4b777482aa3e5d, type: 2}
 --- !u!114 &29308734517045149
 MonoBehaviour:
   m_ObjectHideFlags: 0
