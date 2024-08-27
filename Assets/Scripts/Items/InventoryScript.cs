@@ -13,6 +13,9 @@ public class InventoryScript : MonoBehaviour
 
     [Header("Persistent Inventory")]
     [SerializeField] private InventorySO _inventory;
+    [Header("Throwing away items")]
+    [SerializeField] private AbstractItemsSpawner _spawner;
+    [SerializeField] private Transform _throwAwayPoint;
 
     private void Start()
     {
@@ -39,6 +42,7 @@ public class InventoryScript : MonoBehaviour
     {
         _inventory.RemoveFromInventory(item);
         _inventoryChangedE.Invoke(gameObject);
+        _spawner.Spawn(item, _throwAwayPoint);
     }
 
     public int GetInventorySize()
