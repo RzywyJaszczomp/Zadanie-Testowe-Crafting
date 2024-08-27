@@ -349,6 +349,8 @@ GameObject:
   - component: {fileID: 5452498951034867006}
   - component: {fileID: 8073633542744367037}
   - component: {fileID: 4391620210118080558}
+  - component: {fileID: 7129886332154861288}
+  - component: {fileID: 29308734517045149}
   m_Layer: 0
   m_Name: Inventory
   m_TagString: Untagged
@@ -383,10 +385,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe83be70e8c23748b2e74fcbdbc87db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <InventorySize>k__BackingField: 5
   _inventoryOpenedE: {fileID: 11400000, guid: 1925ee029754f424489cf6a2e093243a, type: 2}
   _inventoryClosedE: {fileID: 11400000, guid: 4c0988e019ea5674b8b3868b8d78522b, type: 2}
   _inventoryChangedE: {fileID: 11400000, guid: bc8c43f0f0d5a894493289e314001dbc, type: 2}
+  _inventoryCreatedE: {fileID: 11400000, guid: 5623599be6a4f594c957c1afd255d3f7, type: 2}
+  _inventory: {fileID: 11400000, guid: f1c58a0731ad56e4faae6dbd49ec45a4, type: 2}
 --- !u!114 &4391620210118080558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,6 +410,51 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: InventoryScript, Assembly-CSharp
         m_MethodName: RemoveFromInventory
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7129886332154861288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6110782606677342643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1f134952c62c4046be03c9c8fae6aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _knownRecipes: {fileID: 11400000, guid: f83c442324233964e9055b4e42e10cb3, type: 2}
+  _craftingClosedE: {fileID: 11400000, guid: ec1a7e991de9abc448b37c7d9c3556ac, type: 2}
+  _craftingOpenedE: {fileID: 11400000, guid: 52335e3decda5bb4d87e1dee93697ec5, type: 2}
+  _updateCraftingE: {fileID: 11400000, guid: 685d4be7efdecb9439881868fc3cc577, type: 2}
+  _craftingCreatedE: {fileID: 11400000, guid: fc875de72ae34b945a86d0f5b64f3f74, type: 2}
+--- !u!114 &29308734517045149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6110782606677342643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 107b42a7d0ed68c488ee074c7e6012c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_event: {fileID: 11400000, guid: ad300be3c46f24c4fbf9d549b81fed62, type: 2}
+  m_reaction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7129886332154861288}
+        m_TargetAssemblyTypeName: CraftingScript, Assembly-CSharp
+        m_MethodName: OnOpenCrafting
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

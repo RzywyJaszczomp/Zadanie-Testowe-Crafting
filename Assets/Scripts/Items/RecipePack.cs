@@ -9,7 +9,7 @@ public class RecipePack : ScriptableObject
     [field:SerializeField]
     private List<Recipe> _recipes;
 
-    public ReadOnlyCollection<Recipe> GetRecepies()
+    public ReadOnlyCollection<Recipe> GetRecipes()
     {
         return new ReadOnlyCollection<Recipe>(_recipes);
     }

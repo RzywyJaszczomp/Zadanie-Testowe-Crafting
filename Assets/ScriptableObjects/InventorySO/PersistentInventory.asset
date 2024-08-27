@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8bdf158aade9b04cbee5a3a2d7ec4d4, type: 3}
   m_Name: PersistentInventory
   m_EditorClassIdentifier: 
-  <InventorySize>k__BackingField: 0
+  <InventorySize>k__BackingField: 40
+  _inventory:
+  - <ItemType>k__BackingField: {fileID: 11400000, guid: 6ca04b08b46576a40a45dd50c725a844,
+      type: 2}
+    <Amount>k__BackingField: 2

@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9c7f443eab31814080ac914bef0dd96, type: 3}
-  m_Name: CraftingOpened
+  m_Script: {fileID: 11500000, guid: 3f0f707baff81c84e88dd6e50c36d326, type: 3}
+  m_Name: CraftingCreated
   m_EditorClassIdentifier: 
   m_listeners: []
