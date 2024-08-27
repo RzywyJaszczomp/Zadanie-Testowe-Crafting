@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "SimpleCustomEvent", menuName = "ScriptableObjects/SimpleCustomEvent")]
+[CreateAssetMenu(fileName = "SimpleCustomEvent", menuName = "ScriptableObjects/Events/SimpleCustomEvent")]
 public class SimpleCustomEvent : ScriptableObject
 {
     [Header("Visible for Debug")]

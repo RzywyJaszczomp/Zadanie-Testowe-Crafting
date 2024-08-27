@@ -3038,7 +3038,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 9206927580216884023}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 9206927580216884024}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae831b57ff148374998cb7bdd7d56552, type: 3}
@@ -3245,9 +3245,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8073633542744367037, guid: d8ac3f2495182af4b9e73ac3a1923f62,
         type: 3}
+      propertyPath: _inventory
+      value: 
+      objectReference: {fileID: 11400000, guid: f1c58a0731ad56e4faae6dbd49ec45a4,
+        type: 2}
+    - target: {fileID: 8073633542744367037, guid: d8ac3f2495182af4b9e73ac3a1923f62,
+        type: 3}
       propertyPath: _craftingOpenedE
       value: 
       objectReference: {fileID: 11400000, guid: 52335e3decda5bb4d87e1dee93697ec5,
+        type: 2}
+    - target: {fileID: 8073633542744367037, guid: d8ac3f2495182af4b9e73ac3a1923f62,
+        type: 3}
+      propertyPath: _inventoryCreatedE
+      value: 
+      objectReference: {fileID: 11400000, guid: 5623599be6a4f594c957c1afd255d3f7,
         type: 2}
     - target: {fileID: 8073633542744367037, guid: d8ac3f2495182af4b9e73ac3a1923f62,
         type: 3}
@@ -3761,8 +3773,46 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1857424612}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7386849316429991730, guid: 69851b05ab429b246b26882e7577bcb6,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9206927580216884025}
   m_SourcePrefab: {fileID: 100100000, guid: 69851b05ab429b246b26882e7577bcb6, type: 3}
+--- !u!1 &9206927580216884024 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7386849316429991730, guid: 69851b05ab429b246b26882e7577bcb6,
+    type: 3}
+  m_PrefabInstance: {fileID: 9206927580216884023}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9206927580216884025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9206927580216884024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04dbf3a6e0f55cc48b00437271fdf357, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_event: {fileID: 11400000, guid: 5623599be6a4f594c957c1afd255d3f7, type: 2}
+  m_reaction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2014419273}
+        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+        m_MethodName: BindInventory
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

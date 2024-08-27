@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class CraftingScript : MonoBehaviour
 {
+    [field:Header("Persistent Recipes")]
     [field:SerializeField]
     public RecipePack KnownRecipes {get; private set;}
+    
+    [Header("Events")]
 
     [SerializeField] private SimpleCustomEvent _craftingClosedE;
     [SerializeField] private CustomEvent _craftingOpenedE;

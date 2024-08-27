@@ -4,14 +4,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityEngine;
 
-[Serializable]
-public struct ItemStack
-{
-    [field:SerializeField]
-    public Item Item {get; private set;}
-    [field:SerializeField]
-    public int Amount {get; private set;}
-}
 
 [CreateAssetMenu(fileName = "Recipe", menuName = "ScriptableObjects/Reciepe")]
 public class Recipe : ScriptableObject

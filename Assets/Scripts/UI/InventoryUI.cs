@@ -2,21 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using System.Collections.ObjectModel;
 
 public class InventoryUI : MonoBehaviour
 {
+    [Header("Events")]
     [SerializeField] private CustomItemEvent _requestItemRemovedE;
     [SerializeField] private SimpleCustomEvent _requestInventoryClosedE;
     [SerializeField] private SimpleCustomEvent _requestCraftingOpenE;
+
+    [Header("Connected Prefabs")]
     [SerializeField] private GameObject _inventorySlot;
+
+    [Header("Interanl Prefabs")]
     [SerializeField] private GameObject _inventoryPanel;
     [SerializeField] private Transform _inventorySlotsParent;
     private List<InventorySlotUI> _inventorySlots = new();
-
+    private InventoryScript _bindedInventory;
 
     private void Awake()
     {
         HideInventory();
+    }
+
+    public void BindInventory(GameObject inventoryObject)
+    {
+        _bindedInventory = inventoryObject.GetComponent<InventoryScript>();
     }
 
     public void ShowInventory()
@@ -31,9 +42,11 @@ public class InventoryUI : MonoBehaviour
 
     public void UpdateInventoryUI(GameObject inventoryObject)
     {
-        var inventory = inventoryObject.GetComponent<InventoryScript>();
-        UpdateNrOfInventorySlots(inventory.InventorySize);
-        DisplayItems(inventory);
+        if(inventoryObject == _bindedInventory.gameObject)
+        {
+            UpdateNrOfInventorySlots(_bindedInventory.GetInventorySize());
+            DisplayItems();
+        }
     }
 
     private void UpdateNrOfInventorySlots(int inventorySize)
@@ -50,14 +63,14 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-    private void DisplayItems(InventoryScript inventory)
+    private void DisplayItems()
     {
         ResetIcons();
         int i = 0;
-        foreach(var itemType in inventory.Inventory.Keys)
+        var inventory = _bindedInventory.GetItemList();
+        foreach(var itemStack in inventory)
         {
-            var amountOfItems = inventory.Inventory[itemType];
-            _inventorySlots[i].SetItemIcon(itemType, amountOfItems);
+            _inventorySlots[i].SetItemIcon(itemStack.ItemType, itemStack.Amount);
             ++i;
         }
     }

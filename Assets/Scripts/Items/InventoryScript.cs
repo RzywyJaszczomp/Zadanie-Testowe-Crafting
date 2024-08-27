@@ -1,22 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using UnityEditor.Rendering;
 using UnityEngine;
+using System.Collections.ObjectModel;
 
 public class InventoryScript : MonoBehaviour
 {
-    [field: SerializeField]
-    public int InventorySize {get; private set;}
+    [Header("Events")]
     [SerializeField] private CustomEvent _inventoryOpenedE;
     [SerializeField] private SimpleCustomEvent _inventoryClosedE;
     [SerializeField] private CustomEvent _inventoryChangedE;
+    [SerializeField] private CustomEvent _inventoryCreatedE;
 
-    public Dictionary<Item, int> Inventory {get; private set;} //TODO better access constraints
+    [Header("Persistent Inventory")]
+    [SerializeField] private InventorySO _inventory;
 
     private void Start()
     {
-        Inventory = new();
+        _inventoryCreatedE.Invoke(gameObject);
     }
 
     public void OnOpenInventory()
@@ -31,28 +31,23 @@ public class InventoryScript : MonoBehaviour
 
     public void AddToInventory(Item item)
     {
-        if(Inventory.ContainsKey(item))
-        {
-            Inventory[item]++;
-        } else
-        {
-            Inventory[item] = 1;
-        }
+        _inventory.AddToInventory(item);
         _inventoryChangedE.Invoke(gameObject);
     }
 
     public void RemoveFromInventory(Item item)
     {
-        if(Inventory.ContainsKey(item))
-        {
-            if(Inventory[item] > 1)
-            {
-                Inventory[item]--;
-            } else
-            {
-                Inventory.Remove(item);
-            }
-            _inventoryChangedE.Invoke(gameObject);
-        }
+        _inventory.RemoveFromInventory(item);
+        _inventoryChangedE.Invoke(gameObject);
+    }
+
+    public int GetInventorySize()
+    {
+        return _inventory.InventorySize;
+    }
+
+    public ReadOnlyCollection<ItemStack> GetItemList()
+    {
+        return _inventory.GetItemList();
     }
 }
