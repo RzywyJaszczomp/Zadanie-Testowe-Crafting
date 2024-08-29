@@ -19,7 +19,7 @@ public class InventorySO : ScriptableObject
             itemStack.Amount+=amount;
         } else
         {
-            _inventory.Add(new ItemStack(item, 1));
+            _inventory.Add(new ItemStack(item, amount));
         }
         ExpandInventory();
     }
