@@ -29,6 +29,7 @@ public class InputManager : MonoBehaviour
         playerMap.FindAction("OpenInventory").performed += _ => inventory.OnOpenInventory(); 
         menuMap.FindAction("CloseInventory").performed += _ => inventory.OnCloseInventory(); 
     }
+
     public void RegisterPlayer(GameObject player)
     {
         var playerMap = _input.actions.FindActionMap("Player");

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,8 +7,8 @@ public class InventorySlotUI : MonoBehaviour
     private CustomItemEvent _requestItemRemovedE;
     [SerializeField] private Image _image;
     [SerializeField] private TextMeshProUGUI _amount;
-    private Item _containedItem;
 
+    private Item _containedItem;
 
     public void ConfigureSlot(CustomItemEvent itemRemovedE)
     {

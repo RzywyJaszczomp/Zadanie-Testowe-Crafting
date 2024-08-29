@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityEngine;
 
@@ -11,7 +9,6 @@ public class CraftingScript : MonoBehaviour
     private RecipePack _knownRecipes;
     
     [Header("Events")]
-
     [SerializeField] private SimpleCustomEvent _craftingClosedE;
     [SerializeField] private SimpleCustomEvent _craftingOpenedE;
     [SerializeField] private SimpleCustomEvent _updateCraftingE;
@@ -19,6 +16,7 @@ public class CraftingScript : MonoBehaviour
     [SerializeField] private RecipeEvent _recipeCraftedE;
     [SerializeField] private SimpleCustomEvent _notEnoughMaterialsE;
     [SerializeField] private SimpleCustomEvent _recipeFailedE;
+
     private InventoryScript _inventory;
 
     public void Start()
@@ -26,10 +24,12 @@ public class CraftingScript : MonoBehaviour
         _craftingCreatedE.Invoke(gameObject); 
         _inventory = GetComponent<InventoryScript>();
     }
+
     public void OnCloseCrafting()
     {
         _craftingClosedE.Invoke();
     }
+
     public void OnOpenCrafting()
     {
         _updateCraftingE.Invoke();

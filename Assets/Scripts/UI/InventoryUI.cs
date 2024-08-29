@@ -1,8 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using System.Collections.ObjectModel;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -17,6 +14,7 @@ public class InventoryUI : MonoBehaviour
     [Header("Interanl Prefabs")]
     [SerializeField] private GameObject _inventoryPanel;
     [SerializeField] private Transform _inventorySlotsParent;
+
     private List<InventorySlotUI> _inventorySlots = new();
     private InventoryScript _bindedInventory;
 

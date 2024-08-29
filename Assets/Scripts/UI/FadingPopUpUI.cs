@@ -9,6 +9,7 @@ public class FadingPopUpUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private String _interactionMessage = "Picked up";
     [SerializeField] private float _secondsActive;
+
     private bool _isActive = false;
     private Coroutine _lastCoroutine = null; 
 
@@ -21,7 +22,6 @@ public class FadingPopUpUI : MonoBehaviour
     {
         _text.text = text;
     }
-
 
     private void Start()
     {

@@ -8,12 +8,15 @@ public class RecipeBarUI : MonoBehaviour
 {
     [Header("Events")]
     [SerializeField] private RecipeEvent _requestMakeRecipeE;
+
     [Header("Connected Prefabs")]
     [SerializeField] private GameObject _itemIcon;
+
     [Header("Interal Prefabs")]
     [SerializeField] private ItemSlotUI _resultIcon;
     [SerializeField] private TextMeshProUGUI _craftingChanceText;
     [SerializeField] private GameObject _ingredientsPanel;
+
     private Recipe _heldRecipe;
 
     public void SetRecipeBar(Recipe recipe)

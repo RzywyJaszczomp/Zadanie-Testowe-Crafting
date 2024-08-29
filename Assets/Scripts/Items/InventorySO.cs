@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -11,6 +10,7 @@ public class InventorySO : ScriptableObject
     public int InventorySize {get; private set;}
     [field: SerializeField]
     private List<ItemStack> _inventory;
+
     public void AddToInventory(Item item, int amount=1)
     {
         if(HasItemType(item))
@@ -43,6 +43,7 @@ public class InventorySO : ScriptableObject
             InventorySize += 10;
             
     }
+
     public ReadOnlyCollection<ItemStack> GetItemList()
     {
         return new ReadOnlyCollection<ItemStack>(_inventory);
@@ -71,7 +72,6 @@ public class InventorySO : ScriptableObject
         }
         return hasItems;
     }
-
 
     public void FinalizeRecipe(Recipe recipe)
     {

@@ -1,8 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
-using UnityEditor.Search;
 using UnityEngine;
 
 public class InteractionMaker : MonoBehaviour
@@ -11,10 +8,10 @@ public class InteractionMaker : MonoBehaviour
     [SerializeField] private CustomEvent _newInteractionAvaliableE;
     [SerializeField] private SimpleCustomEvent _noInteractionAvaliableE;
     [SerializeField] private CustomEvent _pickedUpItemE;
+
     [Header("Allowed Interactions")]
     [SerializeField]
     private List<InteractionType> _allowedInteractions = new();
-
 
     private List<AbstractInteractable> _interactablesInRadius = new();
     
@@ -26,7 +23,6 @@ public class InteractionMaker : MonoBehaviour
             _newInteractionAvaliableE.Invoke(interactable.gameObject);
         }
     }
-
 
     public void LoseInteractable(AbstractInteractable interactable)
     {

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Clickable : AbstractInteractable
@@ -9,6 +7,7 @@ public class Clickable : AbstractInteractable
     {
         TypeOfInteraction = Resources.Load<InteractionType>("ClickInteractionSO");
     }
+
     public override void Interact(GameObject interactionMaker)
     {
         Debug.Log($"{interactionMaker.gameObject} clicked the obelisk");
